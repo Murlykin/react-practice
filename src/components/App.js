@@ -8,7 +8,13 @@ export class App extends Component {
   state = {
   recipes: initialRcipes,
 }
-  deleteRecipe = () => { };
+  deleteRecipe = recipeId => {
+    this.setState(prevState => {
+      return {
+        recipes: prevState.recipes.filter(recipe => recipe.id !== recipeId),
+      };
+    });
+   };
   render() {
     return (
       <Layout>
