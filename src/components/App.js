@@ -1,13 +1,20 @@
-import { RecipeList } from './RecipeList/RecipeList';
-import recipes from '../recipes.json';
 import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout';
+import { Layout } from './Layout/Layout';
+import { Component } from 'react';
+import { RecipeList } from './RecipeList/RecipeList';
+import initialRcipes from '../recipes.json';
 
-export const App = () => {
-  return (
-    <Layout>
-      <RecipeList items={recipes} />
-      <GlobalStyle/>     
-    </Layout>
-  );
+export class App extends Component {
+  state = {
+  recipes: initialRcipes,
+}
+  deleteRecipe = () => { };
+  render() {
+    return (
+      <Layout>
+        <RecipeList items={this.state.recipes} onDelete={this.deleteRecipe} />
+        <GlobalStyle />
+      </Layout>
+    );
+  }
 };
