@@ -17,7 +17,19 @@ export class App extends Component {
       };
     });
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.recipes !== this.state.recipes) {
+      localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
+    }
+  };
+
+  componentDidMount() {
+    const savedRecipes = localStorage.getItem('recipes')
+    console.log(savedRecipes);
+  };
   
+
   deleteRecipe = recipeId => {
     this.setState(prevState => {
       return {

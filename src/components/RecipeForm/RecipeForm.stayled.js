@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { Form as FormikForm, ErrorMessage as FormikError } from 'formik';
 
 export const Form = styled(FormikForm)`
-  width: 230px;
-  height: 500px;
-  padding: 8px;
+  width: 100%;
+  height: 80px;
+  padding: 16px;
   border: 1px solid #2a2a2a;
   border-radius: 5px;
   background-color: #E8F3DE;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 16px;
 `;
 

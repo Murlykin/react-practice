@@ -7,6 +7,11 @@ row-gap: 16px;
 
 `;
 
+export const ModalImg = styled.img`
+width: 560px;
+box-shadow: 0px 0px 15px 10px #E8F3DE;
+`;
+
 export const ModalButton = styled.button`
   cursor: pointer;
   width: 150px;

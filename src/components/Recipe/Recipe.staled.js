@@ -21,19 +21,19 @@ export const Meta = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 6px;
+  padding: 16px;
   flex-grow: 1;
 `;
 export const RecipeInfo = styled.div`
 display: flex;
-gap: 6px;
+gap: 8px;
 
 `;
 
 export const InfoItem = styled.div`
 display: flex;
 align-items: center;
-gap: 2px;
+gap: 6px;
 `;
 
 export const RecipeDifficulty = styled.div`

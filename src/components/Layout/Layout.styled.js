@@ -9,6 +9,6 @@ padding: 16px;
 
 export const RecipeMain = styled.main`
 display: flex;
-justify-content: space-around;
+flex-direction: column;
 gap: 10px;
 `;
