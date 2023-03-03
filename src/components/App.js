@@ -7,9 +7,21 @@ import {RecipeForm} from './RecipeForm/RecipeForm';
 
 export class App extends Component {
   state = {
-  recipes: initialRcipes,
+  recipes: [],
   }
+    componentDidMount() {
+    const savedRecipes = localStorage.getItem('recipes');
+      if (savedRecipes !== null) {
+        const parsedRecipes = JSON.parse(savedRecipes);
+        this.setState({ recipes: parsedRecipes });
+        return;
+      }
+      this.setState({recipes:initialRcipes})
+  };
   
+
+
+
   addRecipe = newRecipe => {
     this.setState(prevState => {
       return {
@@ -18,17 +30,13 @@ export class App extends Component {
     });
   };
 
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.recipes !== this.state.recipes) {
       localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
     }
   };
 
-  componentDidMount() {
-    const savedRecipes = localStorage.getItem('recipes')
-    console.log(savedRecipes);
-  };
-  
 
   deleteRecipe = recipeId => {
     this.setState(prevState => {
