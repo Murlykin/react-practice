@@ -14,7 +14,7 @@ import {
   Actions,
 } from './Recipe.staled';
 import { Component } from 'react';
-import { Modal } from 'components/Modal';
+import { Modal } from 'components/Modal/Modal';
 
 export class Recipe extends Component {
   state = {

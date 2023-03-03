@@ -1,28 +1,13 @@
-import styled from 'styled-components';
-import { Form as FormikForm, ErrorMessage as FormikError } from 'formik';
+import styled from "styled-components";
 
-export const Form = styled(FormikForm)`
-  width: 230px;
-  height: 500px;
-  padding: 8px;
-  border: 1px solid #2a2a2a;
-  border-radius: 5px;
-  background-color: #E8F3DE;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+export const ModalStale = styled.div`
+display: flex;
+flex-direction: column;
+row-gap: 16px;
+
 `;
 
-export const FormField = styled.label`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const ErrorMessage = styled(FormikError)`
-  color: tomato;
-`;
-
-export const FormButton = styled.button`
+export const ModalButton = styled.button`
   cursor: pointer;
   width: 150px;
   height: 42px;

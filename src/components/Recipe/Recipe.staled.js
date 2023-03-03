@@ -21,19 +21,19 @@ export const Meta = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 12px;
+  padding: 6px;
   flex-grow: 1;
 `;
 export const RecipeInfo = styled.div`
 display: flex;
-gap: 8px;
+gap: 6px;
 
 `;
 
 export const InfoItem = styled.div`
 display: flex;
 align-items: center;
-gap: 4px;
+gap: 2px;
 `;
 
 export const RecipeDifficulty = styled.div`
@@ -42,13 +42,18 @@ export const RecipeDifficulty = styled.div`
 
 export const BadgeListy = styled.div`
 display: flex;
-gap: 8px;
+gap: 6px;
 `;
 
 export const Badge = styled.span`
 padding: 8px 16px;
 border: 1px solid black;
 border-radius: 4px;
+margin: auto;
+width: 100px;
+height: 42px;
+text-align: center;
+text-shadow: 0 0 1px #000000;
 background-color: ${props => {
     if (!props.isActive) {
         return 'white';
@@ -63,7 +68,7 @@ background-color: ${props => {
         default:
             return 'vhite';
     }
-   
+
 }};
 
 

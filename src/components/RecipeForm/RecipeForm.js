@@ -1,7 +1,7 @@
 import { Formik, Field } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
-import { Form, FormField, ErrorMessage } from './RecipeForm.stayled';
+import { Form, FormField, ErrorMessage, FormButton  } from './RecipeForm.stayled';
 
 const RecipeSchema = Yup.object().shape({
   name: Yup.string()
@@ -72,7 +72,7 @@ export const RecipeForm = ({ onSave }) => {
           </Field>
           <ErrorMessage name="difficulty" component="span" />
         </FormField>
-        <button type="submit">Save recipe</button>
+        <FormButton  type="submit">Save recipe</FormButton >
       </Form>
     </Formik>
   );
