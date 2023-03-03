@@ -1,10 +1,10 @@
-import {Container, RecipeMain} from './Layout.styled'
+import {Container, RecipeMain, RecipeHeader, RecipeFooter } from './Layout.styled'
 export const Layout = ({ children }) => {
     return (
-        <Container>
-            <header>header</header>
+        <Container> 
+            <RecipeHeader >M E N U</RecipeHeader >
             <RecipeMain>{children}</RecipeMain>
-            <footer>footer</footer>
+            <RecipeFooter></RecipeFooter>
         </Container>
     );
 };

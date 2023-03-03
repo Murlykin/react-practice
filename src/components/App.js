@@ -19,9 +19,6 @@ export class App extends Component {
       this.setState({recipes:initialRcipes})
   };
   
-
-
-
   addRecipe = newRecipe => {
     this.setState(prevState => {
       return {
@@ -30,13 +27,11 @@ export class App extends Component {
     });
   };
 
-
   componentDidUpdate(prevProps, prevState) {
     if (prevState.recipes !== this.state.recipes) {
       localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
     }
   };
-
 
   deleteRecipe = recipeId => {
     this.setState(prevState => {
