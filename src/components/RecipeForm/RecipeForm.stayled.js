@@ -40,6 +40,7 @@ export const FormButton = styled.button`
   font-size: 16px;
   text-shadow: 0 0 1px #000000;
   margin: auto;
+  text-align: center;
 
   &:hover {
     color: #ffffff;

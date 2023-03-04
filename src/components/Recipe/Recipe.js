@@ -76,7 +76,9 @@ export class Recipe extends Component {
         </Meta>
 
         {this.state.isOpen &&
-          <Modal image={image}
+          <Modal
+            name={name}
+          image={image}
             IsOpen={this.state.isOpen}
             onClose={this.closeModal} />}
       </Container>
