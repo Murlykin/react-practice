@@ -1,6 +1,5 @@
 import ReactModal from 'react-modal';
 import { ModalButton, ModalStale, ModalImg } from './Modal.styled'
-// import PropTypes from 'prop-types';
 
 const customStyles = {
   content: {
@@ -32,9 +31,3 @@ export const Modal = ({ image, IsOpen, onClose, name }) => {
     )
 };
 
-
-// Modal.propTypes = {
-//   item: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//   }).isRequired,
-//   };
