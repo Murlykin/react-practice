@@ -10,7 +10,7 @@ export const Form = styled(FormikForm)`
   background-color: #E8F3DE;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 `;
 
 export const FormField = styled.label`
@@ -24,7 +24,7 @@ export const ErrorMessage = styled(FormikError)`
 
 export const FormButton = styled.button`
   cursor: pointer;
-  width: 150px;
+  width: 120px;
   height: 42px;
   border-radius: 5px;
   border: 1px solid #ff6b08;
