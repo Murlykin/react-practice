@@ -11,6 +11,11 @@ export const Form = styled(FormikForm)`
   display: flex;
   align-items: center;
   gap: 10px;
+  @media screen and (max-width:768px)  {
+    flex-direction: column;
+    height: 480px;
+  }
+  
 `;
 
 export const FormField = styled.label`
