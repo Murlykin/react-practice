@@ -10,6 +10,11 @@ row-gap: 16px;
 export const ModalImg = styled.img`
 width: 560px;
 box-shadow: 0px 0px 15px 10px #E8F3DE;
+  @media screen and (max-width:768px)  {
+    flex-direction: column;
+    height: 520px;
+  }
+  
 `;
 
 export const ModalButton = styled.button`
