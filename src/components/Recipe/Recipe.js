@@ -13,78 +13,71 @@ import {
   Badge,
   Actions,
 } from './Recipe.staled';
-import { Component } from 'react';
+import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
 
-export class Recipe extends Component {
-  state = {
-    isOpen: false,
-  };
+export const Recipe = ({
+  item: { id, name, image, time, servings, calories, difficulty },
+  onDelete,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
 
-  openModal = () => this.setState({ isOpen: true });
+  const closeModal = () => setIsOpen(false);
 
-  closeModal = () => this.setState({ isOpen: false });
+  return (
+    <Container>
+      <Image src={image} alt={name} />
+      <Meta>
+        <h2>{name}</h2>
+        <RecipeInfo>
+          <InfoItem>
+            <BsAlarm />
+            {time} min
+          </InfoItem>
+          <InfoItem>
+            <AiOutlinePieChart />
+            {servings} servings
+          </InfoItem>
+          <InfoItem>
+            <HiOutlineChartBar />
+            {calories} calories
+          </InfoItem>
+        </RecipeInfo>
 
-  render() {
-    const {
-      item: { id, name, image, time, servings, calories, difficulty },
-      onDelete,
-    } = this.props;
+        <RecipeDifficulty>
+          <h3>Difficulty</h3>
+          <BadgeListy>
+            <Badge isActive={difficulty === 'easy'} value={difficulty}>
+              Easy
+            </Badge>
+            <Badge isActive={difficulty === 'medium'} value={difficulty}>
+              Medium
+            </Badge>
+            <Badge isActive={difficulty === 'hard'} value={difficulty}>
+              Hard
+            </Badge>
+          </BadgeListy>
+        </RecipeDifficulty>
+        <Actions>
+          <button onClick={() => onDelete(id)} aria-label="Delete">
+            <HiTrash />
+          </button>
+          <button onClick={openModal} aria-label="Zoom">
+            <HiZoomIn />
+          </button>
+        </Actions>
+      </Meta>
 
-    return (
-      <Container>
-        <Image src={image} alt={name} />
-        <Meta>
-          <h2>{name}</h2>
-          <RecipeInfo>
-            <InfoItem>
-              <BsAlarm />
-              {time} min
-            </InfoItem>
-            <InfoItem>
-              <AiOutlinePieChart />
-              {servings} servings
-            </InfoItem>
-            <InfoItem>
-              <HiOutlineChartBar />
-              {calories} calories
-            </InfoItem>
-          </RecipeInfo>
-
-          <RecipeDifficulty>
-            <h3>Difficulty</h3>
-            <BadgeListy>
-              <Badge isActive={difficulty === 'easy'} value={difficulty}>
-                Easy
-              </Badge>
-              <Badge isActive={difficulty === 'medium'} value={difficulty}>
-                Medium
-              </Badge>
-              <Badge isActive={difficulty === 'hard'} value={difficulty}>
-                Hard
-              </Badge>
-            </BadgeListy>
-          </RecipeDifficulty>
-          <Actions>
-            <button onClick={() => onDelete(id)} aria-label="Delete">
-              <HiTrash />
-            </button>
-            <button onClick={this.openModal} aria-label="Zoom">
-              <HiZoomIn />
-            </button>
-          </Actions>
-        </Meta>
-
-        {this.state.isOpen &&
-          <Modal
-            name={name}
+      {isOpen &&
+        <Modal
+          name={name}
           image={image}
-            IsOpen={this.state.isOpen}
-            onClose={this.closeModal} />}
-      </Container>
-    );
-  }
-}
+          IsOpen={isOpen}
+          onClose={closeModal} />}
+    </Container>
+  );
+};
 
 Recipe.propTypes = {
   item: PropTypes.shape({
