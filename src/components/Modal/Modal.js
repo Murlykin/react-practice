@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal';
-import { ModalButton, ModalStale, ModalImg } from './Modal.styled'
+import { ModalButton, ModalStale, ModalImg } from './Modal.styled';
 
 const customStyles = {
   content: {
@@ -13,21 +13,18 @@ const customStyles = {
 };
 ReactModal.setAppElement('#root');
 
-
 export const Modal = ({ image, IsOpen, onClose, name }) => {
   return (
-    
-       <ReactModal
-        isOpen={IsOpen}
-        style={customStyles}
-        contentLabel="Example Modal"
-      ><ModalStale>
-      <h2>{name}</h2>
-      <ModalImg src={image} alt=""/>
+    <ReactModal
+      isOpen={IsOpen}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <ModalStale>
+        <h2>{name}</h2>
+        <ModalImg src={image} alt="" />
         <ModalButton onClick={onClose}>Close modal</ModalButton>
-        </ModalStale> 
-      </ReactModal>
-    
-    )
+      </ModalStale>
+    </ReactModal>
+  );
 };
-

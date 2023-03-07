@@ -4,7 +4,6 @@ export const ModalStale = styled.div`
 display: flex;
 flex-direction: column;
 row-gap: 16px;
-
 `;
 
 export const ModalImg = styled.img`
@@ -14,7 +13,6 @@ box-shadow: 0px 0px 15px 10px #E8F3DE;
     flex-direction: column;
     height: 520px;
   }
-  
 `;
 
 export const ModalButton = styled.button`

@@ -1,52 +1,37 @@
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout/Layout';
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { RecipeList } from './RecipeList/RecipeList';
 import initialRcipes from '../recipes.json';
-import {RecipeForm} from './RecipeForm/RecipeForm';
+import { RecipeForm } from './RecipeForm/RecipeForm';
 
-export class App extends Component {
-  state = {
-  recipes: [],
-  }
-    componentDidMount() {
+export const App = () => {
+  const [recipes, setRecipes] = useState(() => {
     const savedRecipes = localStorage.getItem('recipes');
-      if (savedRecipes !== null) {
-        const parsedRecipes = JSON.parse(savedRecipes);
-        this.setState({ recipes: parsedRecipes });
-        return;
-      }
-      this.setState({recipes:initialRcipes})
-  };
-  
-  addRecipe = newRecipe => {
-    this.setState(prevState => {
-      return {
-        recipes: [...prevState.recipes, newRecipe],
-      };
-    });
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.recipes !== this.state.recipes) {
-      localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
+    if (savedRecipes !== null) {
+      const parsedRecipes = JSON.parse(savedRecipes);
+      return parsedRecipes;
     }
+    return initialRcipes;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+  }, [recipes]);
+
+  const addRecipe = newRecipe => {
+    setRecipes(prevState => [...prevState, newRecipe]);
   };
 
-  deleteRecipe = recipeId => {
-    this.setState(prevState => {
-      return {
-        recipes: prevState.recipes.filter(recipe => recipe.id !== recipeId),
-      };
-    });
-   };
-  render() {
-    return (
-      <Layout>
-        <RecipeForm onSave={this.addRecipe} />
-        <RecipeList items={this.state.recipes} onDelete={this.deleteRecipe} />
-        <GlobalStyle />
-      </Layout>
-    );
-  }
+  const deleteRecipe = recipeId => {
+    setRecipes(prevState => prevState.filter(recipe => recipe.id !== recipeId));
+  };
+
+  return (
+    <Layout>
+      <RecipeForm onSave={addRecipe} />
+      <RecipeList items={recipes} onDelete={deleteRecipe} />
+      <GlobalStyle />
+    </Layout>
+  );
 };
